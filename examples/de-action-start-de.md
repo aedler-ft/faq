@@ -1,14 +1,14 @@
-## Action start examples for germany
+# Action start examples for germany
 
 Examples of action starttimes determination
 
-### Standard action - explicit flow
+## Standard action - explicit flow
 
 1. Start-Transaction 
 
 Request:
 
-```json
+```javascript
 {
     "ftCashBoxID":"cashboxid-guid",
     "ftPosSystemId":"possystemid-guid",
@@ -22,9 +22,10 @@ Request:
     "cbArea":"Scannerkasse 14"
 }
 ```
+
 Response:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -46,11 +47,12 @@ Response:
     "ftState": 4919338167972134912
 }
 ```
+
 nothing to print here.
 
-2. POS receipt receipt (finish transaction)
+1. POS receipt receipt \(finish transaction\)
 
-```json
+```javascript
 {
     "ftCashBoxID":"cashboxid-guid",
     "ftPosSystemId":"possystemid-guid",
@@ -92,7 +94,8 @@ nothing to print here.
 ```
 
 Response:
-```json
+
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -216,18 +219,15 @@ Response:
 
 **Datetimes to be printed**:
 
-1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-22T10:48:15.260Z"` from `cbReceiptMoment` of the pos-receipt request
+1. time of receipt creation \(DE: Datum der Belegausgabe\): `2020-05-22T10:48:15.260Z"` from `cbReceiptMoment` of the pos-receipt request
+2. start time of the action \(DE: Zeitpunkt des Vorgangbeginns\): `2020-05-22T10:47:50.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` \(`dec: 4919338167972134943`\)
+3. end time of the action \(DE: Zeitpunkt der Vorgangsbeendigung\): `2020-05-22T10:48:17.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A` \(`dec: 4919338167972134938`\)
 
-2. start time of the action (DE: Zeitpunkt des Vorgangbeginns):   `2020-05-22T10:47:50.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` (`dec: 4919338167972134943`)
-
-3. end time of the action (DE: Zeitpunkt der Vorgangsbeendigung):   `2020-05-22T10:48:17.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A`  (`dec: 4919338167972134938`)
-
-
-### Standard action - implicit flow
+## Standard action - implicit flow
 
 Request:
 
-```json
+```javascript
 {
     "ftCashBoxID":"cashboxid-guid",
     "ftPosSystemId":"possystemid-guid",
@@ -269,7 +269,7 @@ Request:
 
 Response:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -393,21 +393,17 @@ Response:
 
 **Datetimes to be printed**:
 
-1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-22T11:33:00.260Z"` from `cbReceiptMoment` of the pos-receipt request
+1. time of receipt creation \(DE: Datum der Belegausgabe\): `2020-05-22T11:33:00.260Z"` from `cbReceiptMoment` of the pos-receipt request
+2. start time of the action \(DE: Zeitpunkt des Vorgangbeginns\): `2020-05-22T10:47:40.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` \(`dec: 4919338167972134943`\)
+3. end time of the action \(DE: Zeitpunkt der Vorgangsbeendigung\): `2020-05-22T11:33:02.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A` \(`dec: 4919338167972134938`\)
 
-2. start time of the action (DE: Zeitpunkt des Vorgangbeginns):   `2020-05-22T10:47:40.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` (`dec: 4919338167972134943`)
+## Long lasting action - implicit flow
 
-3. end time of the action (DE: Zeitpunkt der Vorgangsbeendigung):   `2020-05-22T11:33:02.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A`  (`dec: 4919338167972134938`)
-
-
-### Long lasting action - implicit flow
-
-1. Order (info-order) - day 1
+1. Order \(info-order\) - day 1
 
 Request:
 
-```json
-
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -434,7 +430,7 @@ Request:
 
 Response:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -477,12 +473,11 @@ Response:
 
 nothing to print here
 
-
-2. Order (info-order) - day 2
+1. Order \(info-order\) - day 2
 
 Request:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -509,7 +504,7 @@ Request:
 
 Response:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -549,13 +544,14 @@ Response:
     "ftState": 4919338167972134912
 }
 ```
+
 nothing to print here
 
-3. Pos receipt (pos-receipt) - day 3
+1. Pos receipt \(pos-receipt\) - day 3
 
 Request:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -594,11 +590,11 @@ Request:
     "ftReceiptCase":4919338172267102209,
     "cbArea":"Zimmer 12"
 }
-
 ```
+
 Response:
 
-```json
+```javascript
 {
     "ftCashBoxID": "cashboxid-guid",
     "ftQueueID": "b6c9f13b-b987-43cd-ab08-3f5cb2a850d6",
@@ -719,12 +715,11 @@ Response:
     "ftState": 4919338167972134912
 }
 ```
+
 **Datetimes to be printed**:
 
-1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-28T14:11:22.233Z` from `cbReceiptMoment` of the pos-receipt request
+1. time of receipt creation \(DE: Datum der Belegausgabe\): `2020-05-28T14:11:22.233Z` from `cbReceiptMoment` of the pos-receipt request
+2. start time of the action \(DE: Zeitpunkt des Vorgangbeginns\): `2020-05-29T14:08:23.000Z` from the signature block with `ftSignatureType`: `0x4445000000000019` \(`dec: 4919338167972134937`\)
+3. end time of the action \(DE: Zeitpunkt der Vorgangsbeendigung\): `2020-05-29T14:08:24.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A` \(`dec: 4919338167972134938`\)
+4. start time of the first order \(DE: Startzeitpunkt der ersten „Bestellung“ im Bondruck\): `2020-05-26T10:31:34.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` \(`dec: 4919338167972134943`\)
 
-2. start time of the action (DE: Zeitpunkt des Vorgangbeginns):   `2020-05-29T14:08:23.000Z` from the signature block with `ftSignatureType`: `0x4445000000000019` (`dec: 4919338167972134937`)
-
-3. end time of the action (DE: Zeitpunkt der Vorgangsbeendigung):   `2020-05-29T14:08:24.000Z` from the signature block with `ftSignatureType`: `0x444500000000001A`  (`dec: 4919338167972134938`)
-
-4. start time of the first order (DE: Startzeitpunkt der ersten „Bestellung“ im Bondruck):  `2020-05-26T10:31:34.960Z` from the signature block with `ftSignatureType`: `0x444500000000001F` (`dec: 4919338167972134943`)

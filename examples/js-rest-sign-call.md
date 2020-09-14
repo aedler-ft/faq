@@ -1,6 +1,6 @@
-## JS/jQuery Example calling the REST Web Service
+# JS/jQuery Example calling the REST Web Service
 
-```js
+```javascript
 function sign() {
     var url = $("http://localhost:1200/b6c9f13b-b987-43cd-ab08-3f5cb2a850d6").val();
     url += "/json/v1/sign";
@@ -21,3 +21,4 @@ function success(data, textStatus, jqXHR) {
     $("#respdata").val(JSON.stringify(data));
 }
 ```
+
